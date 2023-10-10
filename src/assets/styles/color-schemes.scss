@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+@mixin color-scheme(){
+    background-color: $primary-color;
+    color: $text-color
+}
+
+@mixin color-scheme-dark(){
+    background-color: $primary-color-dark;
+    color: $text-color-dark
+}
