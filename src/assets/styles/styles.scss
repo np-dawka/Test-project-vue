@@ -12,6 +12,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+*{
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -21,15 +24,68 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  #app {
+    .container {
+      display: flex;
+      .sidebar {
+        width: $sidebar-width;
+        padding: $space-medium;
+        position: sticky;
+        top: 0;
+        left: 0;
+        .sidebar-item {
+          padding: $space-medium $space-small;
+          border-radius: $space-small;
+          transition: $transition-slow;
+          cursor: pointer; /* Add cursor pointer to indicate interactivity */
+
+          &:hover {
+            background: $gradientSyan; /* Define the hover background color */
+            .icon {
+              // color: $hover-icon-color; /* Define the hover icon color */
+            }
+          }
+  
+          .sidebar-item_el {
+            display: flex;
+            align-items: center;
+            column-gap: $space-medium;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: $space-large;
+  
+            .icon {
+              font-size: $space-larger;
+              color: $syan;
+              margin-top: 3px;
+            }
+          }
+        }
+      }
+      .topbar{
+        height: $top-width;
+      }
+    }
+  } 
 }
 
 [data-theme="light"]{
-  body {
     @include color-scheme;
-  }
+    .sidebar{
+      @include color-scheme-sidebar;
+      .sidebar-item_el{
+        color: $text-color;
+      }
+    }
 }
   
 [data-theme="dark"] {
   @include color-scheme-dark;
+  .sidebar{
+    @include color-scheme-sidebar-dark;
+    .sidebar-item_el{
+      color: $text-color-dark;
+    }
+  }
 }
   

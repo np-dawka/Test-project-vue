@@ -1,11 +1,21 @@
 @import "./variables.scss";
 
 @mixin color-scheme(){
-    background-color: $primary-color;
+    background-color: $secondary-color;
     color: $text-color
 }
 
 @mixin color-scheme-dark(){
+    background-color: $secondary-color-dark;
+    color: $text-color-dark
+}
+
+@mixin color-scheme-sidebar(){
+    background-color: $primary-color;
+    color: $text-color
+}
+
+@mixin color-scheme-sidebar-dark(){
     background-color: $primary-color-dark;
     color: $text-color-dark
 }

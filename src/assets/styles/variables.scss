@@ -1,4 +1,4 @@
-
+//colors
 $primary-color: #DEE2E6;
 $secondary-color: #F1F3F5;
 $primary-color-dark: rgb(13, 15, 29);
@@ -14,4 +14,18 @@ $red: rgb(231, 76, 60);
 $yellow: rgb(244, 208, 63);
 $gradientSyan: linear-gradient(180deg, rgb(7, 9, 24) 10%, rgb(15, 156, 161) 100%, rgb(88, 214, 141) 50%);
 $borderSyan: 1px solid rgb(15, 156, 161);
+
+//space
+$sidebar-width: 250px;
+$top-width: 70px;
+$space-small: 8px;
+$space-medium: 12px;
+$space-large: 16px;
+$space-larger: 24px;
+$space-largest: 36px;
+
+//transition
+$transition-fast: all ease-in-out 0.25s;
+$transition-medium: all ease-in-out 0.5s;
+$transition-slow: all ease-in-out 1s;
 
