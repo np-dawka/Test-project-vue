@@ -19,3 +19,21 @@
     background-color: $primary-color-dark;
     color: $text-color-dark
 }
+
+@mixin text-scheme-medium(){
+    display: block;
+    text-align: center;
+    font-size: $font-large;
+    font-weight: bold;
+    padding-bottom: $space-small;
+}
+
+@mixin color-scheme-hover(){
+    background: $gradientSyanLight;
+    color: $text-color
+}
+
+@mixin color-scheme-hover-dark(){
+    background: $gradientSyan;
+    color: $text-color-dark
+}

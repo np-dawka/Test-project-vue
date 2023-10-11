@@ -1,0 +1,83 @@
+@import "./variables/variables.scss";
+@import "./variables/style-schemes.scss";
+
+.month-container{
+    width: 100%;
+    padding: 8px;
+    margin: 0 auto;
+    max-width: 280px;
+    border-radius: $space-medium;
+    .title{
+     @include text-scheme-medium
+    }
+    table{
+        width: 100%;
+        min-height: 200px;
+        border-collapse: collapse;
+        height: 100%;
+
+        tr{
+            grid-template-columns: repeat(7, 1fr);
+            td{
+                text-align: center;
+                transition: all ease-in-out 1s;
+                border-radius: 4px;
+              }
+        }
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        gap: $space-medium;
+        padding: $space-small $space-medium;
+    }
+}
+
+.month-view{
+  max-width: $max-width;
+  border-radius: $space-medium;
+  .title{
+    @include text-scheme-medium;
+    font-size: $font-larger;
+  }
+  table{
+    margin-top: $space-large;
+    tr{
+      th{
+        height: 50px;
+        font-size: $font-larger;
+        color: $syan;
+      }
+      td{
+        height: 140px;
+        padding: $space-small;
+        text-align:start;
+        vertical-align: top;
+        border: $border-syan;
+      }
+    }
+  }
+  
+}
+
+[data-theme="light"]{
+    .hasBackground{
+        @include color-scheme-hover
+    }
+    td{
+      &:hover {
+        background: $gradientSyanLight; 
+      }
+    }
+}
+  
+[data-theme="dark"] {
+  .hasBackground{
+    @include color-scheme-hover-dark
+}
+td{
+  &:hover {
+    background: $gradientSyan; 
+  }
+}
+}

@@ -12,10 +12,12 @@ import Topbar from './components/Topbar.vue'
     <Sidebar />
     <div>
       <Topbar/>
-      <RouterView />
+      <div class="container-content">
+        <RouterView />
+      </div>
   </div>
 </div></template>
 
 <style lang="scss">
-@import "./assets/styles/styles.scss";
+@import "./assets/styles/mainStyles.scss";
 </style>

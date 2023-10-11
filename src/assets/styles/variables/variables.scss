@@ -12,8 +12,12 @@ $syan: rgb(15, 156, 161);
 $green: rgb(88, 214, 141);
 $red: rgb(231, 76, 60);
 $yellow: rgb(244, 208, 63);
-$gradientSyan: linear-gradient(180deg, rgb(7, 9, 24) 10%, rgb(15, 156, 161) 100%, rgb(88, 214, 141) 50%);
+$gradientSyan: linear-gradient(180deg, rgb(7, 9, 24) 10%, rgb(15, 156, 161) 100%, rgb(88, 214, 141) 40%);
+$gradientSyanLight: linear-gradient(0deg, rgba(18, 184, 134, 0.6) 5%, rgba(77, 171, 247, 0.28) 95%);;
 $borderSyan: 1px solid rgb(15, 156, 161);
+$max-width: 1152px;
+$max-width-large: 2000px;
+
 
 //space
 $sidebar-width: 250px;
@@ -24,8 +28,16 @@ $space-large: 16px;
 $space-larger: 24px;
 $space-largest: 36px;
 
+//font-size
+$font-small: 13px;
+$font-medium: 16px;
+$font-large: 20px;
+$font-larger: 24px;
+
 //transition
 $transition-fast: all ease-in-out 0.25s;
 $transition-medium: all ease-in-out 0.5s;
 $transition-slow: all ease-in-out 1s;
 
+//border
+$border-syan: 1px solid $syan;

@@ -1,11 +1,12 @@
-@import "./variables.scss";
-@import "./color-schemes.scss";
+@import "./variables/variables.scss";
+@import "./variables/style-schemes.scss";
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  font-family: 'Roboto', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,18 +34,14 @@ body {
         position: sticky;
         top: 0;
         left: 0;
+        .sidebarTop{
+          margin: 50px 0 20px;
+        }
         .sidebar-item {
           padding: $space-medium $space-small;
           border-radius: $space-small;
           transition: $transition-slow;
-          cursor: pointer; /* Add cursor pointer to indicate interactivity */
-
-          &:hover {
-            background: $gradientSyan; /* Define the hover background color */
-            .icon {
-              // color: $hover-icon-color; /* Define the hover icon color */
-            }
-          }
+          cursor: pointer; 
   
           .sidebar-item_el {
             display: flex;
@@ -64,18 +61,53 @@ body {
       }
       .topbar{
         height: $top-width;
+        width: 100%;
+        flex-grow: 1;
+        display: inline-block;
+      }
+      .container-content{
+        width: calc(100vw - $sidebar-width);
+        display: flex;
+        justify-content: center;
+        padding: $space-large;
+        box-sizing: border-box;
+          .content-container-view{
+            width: 100%;
+            max-width: $max-width;
+          }
+        
       }
     }
   } 
+}
+
+.title-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-largest;
+  h2{
+      text-align: center;
+  }
 }
 
 [data-theme="light"]{
     @include color-scheme;
     .sidebar{
       @include color-scheme-sidebar;
-      .sidebar-item_el{
-        color: $text-color;
+      .sidebar-item{
+        .sidebar-item_el{
+          color: $text-color;
+        }
+        &:hover {
+          background: $gradientSyanLight; 
+          .icon {
+          }
+        }
       }
+    }
+    .topbar{
+      @include color-scheme-sidebar;
     }
 }
   
@@ -83,9 +115,19 @@ body {
   @include color-scheme-dark;
   .sidebar{
     @include color-scheme-sidebar-dark;
-    .sidebar-item_el{
-      color: $text-color-dark;
+    .sidebar-item{
+      .sidebar-item_el{
+        color: $text-color-dark;
+      }
+      &:hover {
+        background: $gradientSyan; 
+        .icon {
+        }
+      }
     }
+  }
+  .topbar{
+    @include color-scheme-sidebar-dark;
   }
 }
   

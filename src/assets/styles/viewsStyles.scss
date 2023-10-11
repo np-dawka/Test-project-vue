@@ -1,0 +1,73 @@
+@import "./variables/variables.scss";
+@import "./variables/style-schemes.scss";
+
+
+
+.year{
+
+    .year-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: $space-larger;
+    }
+}
+button{
+    background: transparent;
+    outline: none;
+    color: white;
+}
+
+.week-calendar{
+    width: 100%;
+    max-width: $max-width-large;
+    .content{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        .day{
+            border: $border-syan;
+            padding: $space-small;
+            .header{
+                display: block;
+                text-align: center;
+                @include text-scheme-medium;
+
+            }
+            .plan{
+                min-height: 700px;
+            }
+        }
+    }
+}
+
+.day-plan{
+    width: 100%;
+    display: flex;
+    max-width: $max-width;
+    gap: $space-large;
+    .section-item{
+        border: $borderSyan;
+        border-radius: $space-small;
+        padding: $space-small;
+    }
+    .todo-list{
+        flex-grow: 1;
+    }
+    .additional-section{
+        width: 400px;
+        .aphorism{
+            background: $gradientSyan;
+            min-height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-medium;
+            font-weight: bold;
+            margin-bottom: $space-large;
+        }
+        .finance{
+            min-height: 600px;
+
+
+        }
+    }
+}
