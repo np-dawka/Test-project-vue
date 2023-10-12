@@ -1,10 +1,22 @@
 @import "./variables/variables.scss";
-@import "./variables/style-schemes.scss";
 
+main{
+    display: flex;
+    max-width: $max-width;
+    align-items: center;
+    .text{
+        flex-grow: 1;
 
+        h1{
+            font-size: $font-largest;
+        }
+    }
+    img{
+        max-width: 800px;
+    }
+}
 
 .year{
-
     .year-container{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -63,11 +75,42 @@ button{
             font-size: $font-medium;
             font-weight: bold;
             margin-bottom: $space-large;
+            border: none;
         }
         .finance{
             min-height: 600px;
+        }
+    }
+}
 
+.help-view{
+    width: 100%;
+    max-width: $max-width-small;
+    text-align: center;
 
+    .help-view-item{
+        margin-bottom: $space-larger;
+        .view-item{
+            display: flex;
+            span{
+                width: 500px;
+                padding: $space-larger;
+                border-radius: $space-larger;
+                font-weight: 500;
+            }
+        }
+        .question{
+            span{
+                border-bottom-left-radius: 0;
+                margin-bottom: $space-medium;
+            }
+        }
+        .answer{
+            justify-content: flex-end;
+            span{
+                border-bottom-right-radius: 0;
+                color: $text-color;
+            }
         }
     }
 }

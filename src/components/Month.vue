@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NextPrevButton from './NextPrevButton.vue';
 import createCalendar from '../composables/createCalendar';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 const daysOfWeek = ['Ня', 'Да', 'Мя', 'Лх', 'Пү', 'Ба', 'Бя'];
 const { showButton, monthIndex = 0, hasBackground = false, dateData } = defineProps([
@@ -23,9 +23,10 @@ const {
   hasBackground
 );
 
-// watch(() => dateData, (newValue) => {
-//   dateChanged.value = newValue ?? new Date();
-// });
+watch(dateData, (newValue) => {
+  dateChanged.value = newValue ?? new Date();
+  console.log('dateData :>> ', dateData);
+});
 </script>
 
 <template>

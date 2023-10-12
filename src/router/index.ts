@@ -6,6 +6,8 @@ import WeekView from '../views/WeekView.vue'
 import DayView from '../views/DayView.vue'
 import Performance from '../views/Perfomance.vue'
 import Help from '../views/Help.vue'
+import Login from '../views/Login.vue'
+import Signup from '../views/Signup.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,7 +47,16 @@ const router = createRouter({
       name: 'help',
       component: Help
     },
-
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: Signup
+    },
   ]
 })
 

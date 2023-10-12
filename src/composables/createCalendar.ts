@@ -1,5 +1,5 @@
 
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 
 const createCalendar = (initialDate : Date, monthIndex: number, hasBackground: boolean) => {
   const date = ref(initialDate);

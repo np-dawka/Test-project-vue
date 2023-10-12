@@ -17,10 +17,10 @@ const sidebarData = [
     <div class="sidebarTop">
       <Month :showButton="true"  />
     </div>
-    <div v-for="item in sidebarData" :key="item.label" class="sidebar-item">
-        <router-link :to="item.link" class="sidebar-item_el">
+    <div v-for="item in sidebarData" :key="item.label" >
+        <router-link :to="item.link" >
             <!-- <menu-icon /> -->
-            <span>{{ item.label }}</span>
+            <span class="sidebar-item">{{ item.label }}</span>
         </router-link>
     </div>
   </div>
