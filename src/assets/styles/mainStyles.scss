@@ -130,6 +130,9 @@ body {
         }
       }
     }
+    .router-link-active{
+      background: $gradientSyanLight; 
+    }
     }
     .topbar{
       // @include color-scheme-sidebar;
@@ -207,11 +210,9 @@ body {
       .icon {
       }
     }
-    .router-link-active{
-      background: $gradientSyan; 
-      .icon {
-      }
-    }
+  }
+  .router-link-active{
+    background: $gradientSyan; 
   }
   }
   .topbar{
