@@ -1,15 +1,15 @@
 <script lang="ts" setup>
+    import { VmButton } from 'vue3-material';
     const {handler} = defineProps(['type','handler']);
-
 
 </script>
 
 <template>
-    <button @click="handler">
+    <VmButton @click="handler" class="nextPrev-button">
         <slot>
             &lt;&lt;
         </slot>
-    </button>
+    </VmButton>
 </template>
 
 <style lang="scss">

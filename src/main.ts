@@ -5,7 +5,6 @@ import Vue3Material from 'vue3-material';
 
 const app = createApp(App);
 
-app.use(router);
 
 createApp(App)
     .use(router)

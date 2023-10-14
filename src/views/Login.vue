@@ -1,9 +1,13 @@
 <script lang="ts" setup>
+import AnimatedModal from '../components/AnimatedModal.vue';
+
 
 </script>
 <template>
     <div>
-        Login
+        <AnimatedModal>
+            login
+        </AnimatedModal>
     </div>
 </template>
 <style>

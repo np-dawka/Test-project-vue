@@ -17,10 +17,10 @@ const { date, prevMonth, nextMonth, rows } = createCalendar(
   hasBackground
 );
 
-watch(dateData, (newValue) => {
-  dateChanged.value = newValue ?? new Date();
-  console.log('dateData :>> ', dateData);
-});
+// watch(dateData, (newValue) => {
+//   dateChanged.value = newValue ?? new Date();
+//   console.log('dateData :>> ', dateData);
+// });
 onMounted(() => {
   
 });

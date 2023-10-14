@@ -2,7 +2,8 @@
 import { RouterView } from 'vue-router'
 import Sidebar from './components/Sidebar.vue'
 import Topbar from './components/Topbar.vue'
-// import { AnnotationIcon, ArrowCircleUpIcon} from '@vue-hero-icons/outline'
+// import { BeakerIcon } from '@heroicons/vue/24/solid'
+
 </script>
 
 <template>
@@ -10,9 +11,6 @@ import Topbar from './components/Topbar.vue'
     <Sidebar />
     <div>
       <Topbar/>
-      <!-- <AnnotationIcon size="1.5x" class="custom-class" />
-      <ArrowCircleUpIcon size="1.5x" class="custom-class" /> -->
-
       <div class="container-content">
         <RouterView />
       </div>

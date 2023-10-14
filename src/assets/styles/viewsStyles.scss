@@ -5,14 +5,41 @@ main{
     max-width: $max-width;
     align-items: center;
     .text{
-        flex-grow: 1;
+        width: 360px;
 
         h1{
             font-size: $font-largest;
         }
+        .buttonContainer{
+            display: flex;
+            justify-content: space-between;
+            padding-right: $space-large;
+            .button{
+                background: $gradientSyan;
+                padding: $space-medium $space-larger;
+            }
+            .button-grey{
+                background: $gradientGrey;
+                color: $text-color;
+            }
+        }
     }
     img{
-        max-width: 800px;
+        flex-grow: 1;
+        width: auto;
+    }
+    @media screen and (max-width: 1450px){
+        flex-direction: column;
+        .text{
+            width: 60%;
+            .buttonContainer{
+                width: 360px;
+                // justify-content: ;
+            }
+        }
+        img{
+            max-width: 600px;
+        }
     }
 }
 

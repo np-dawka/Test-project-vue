@@ -1,7 +1,12 @@
 <template>
     <div class="day-plan">
         <div class="todo-list section-item">
-          todo List
+          <div>
+            todos
+          </div>
+          <div> 
+            add button
+          </div>
         </div>
         <div class="additional-section">
           <div class="aphorism section-item">

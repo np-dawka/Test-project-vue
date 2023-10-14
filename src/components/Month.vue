@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NextPrevButton from './NextPrevButton.vue';
 import createCalendar from '../composables/createCalendar';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 
 const daysOfWeek = ['Ня', 'Да', 'Мя', 'Лх', 'Пү', 'Ба', 'Бя'];
 const { showButton, monthIndex = 0, hasBackground = false, dateData } = defineProps([
@@ -10,6 +10,7 @@ const { showButton, monthIndex = 0, hasBackground = false, dateData } = definePr
   'hasBackground',
   'dateData'
 ]);
+
 
 const dateChanged = ref(dateData ?? new Date());
 const {
@@ -23,17 +24,21 @@ const {
   hasBackground
 );
 
-watch(dateData, (newValue) => {
-  dateChanged.value = newValue ?? new Date();
-  console.log('dateData :>> ', dateData);
-});
 </script>
 
 <template>
   <div class="month-container" :class="{ hasBackground: hasBackground }">
-    <span class="title">
-      {{ date.getFullYear() }} - {{ monthIndex == "Nan" ? 1 : monthIndex ? monthIndex + 1 : date.getMonth() + 1 }} сар
+    <div class="title-container padding-small">
+      <NextPrevButton :handler="prevMonth" v-if="showButton"  />
+      <span class="title">
+      {{ date.getFullYear() }} - {{ hasBackground && monthIndex === 0 ? 1 : monthIndex ? monthIndex + 1 : date.getMonth() + 1 }} сар
     </span>
+    <NextPrevButton :handler="nextMonth" v-if="showButton" >
+        <slot>
+          &gt;&gt;
+        </slot>
+      </NextPrevButton>
+    </div>
     <table>
       <thead>
         <tr>
@@ -49,12 +54,6 @@ watch(dateData, (newValue) => {
       </tbody>
     </table>
     <div v-if="showButton" class="buttons">
-      <NextPrevButton :handler="prevMonth" />
-      <NextPrevButton :handler="nextMonth">
-        <slot>
-          &gt;&gt;
-        </slot>
-      </NextPrevButton>
     </div>
   </div>
 </template>

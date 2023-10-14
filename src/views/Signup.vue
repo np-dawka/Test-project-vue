@@ -1,9 +1,13 @@
 <script lang="ts" setup>
+import AnimatedModal from '../components/AnimatedModal.vue';
+
 
 </script>
 <template>
     <div>
-        Sign up
+        <AnimatedModal>
+            sign up
+        </AnimatedModal>
     </div>
 </template>
 <style>
