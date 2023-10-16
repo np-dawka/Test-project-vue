@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Month from "../components/Month.vue";
-import NextPrevButton from "../components/NextPrevButton.vue";
+import NextPrevButton from "../components/Buttons.vue";
 import { ref } from "vue";
 
 const date = ref(new Date());
@@ -24,8 +24,8 @@ const computeMonths = () => {
     <div class="title-container">
       <NextPrevButton :handler="prevYear" />
       <h2>{{ date.getFullYear() }} оны хуанли</h2>
-      <NextPrevButton :handler="nextYear">
-        <slot> &gt;&gt; </slot>
+      <NextPrevButton :handler="nextYear"> 
+        &gt;&gt;
       </NextPrevButton>
     </div>
     <div class="year-container">

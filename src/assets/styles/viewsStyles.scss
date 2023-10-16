@@ -93,7 +93,7 @@ button{
     }
     .additional-section{
         width: 400px;
-        .aphorism{
+        .calendar{
             background: $gradientSyan;
             min-height: 120px;
             display: flex;
@@ -103,6 +103,11 @@ button{
             font-weight: bold;
             margin-bottom: $space-large;
             border: none;
+            border-radius: $space-medium;
+            .month-container{
+                max-width: 100%;
+                padding: $space-large;
+            }
         }
         .finance{
             min-height: 600px;
@@ -112,32 +117,46 @@ button{
 
 .help-view{
     width: 100%;
-    max-width: $max-width-small;
+    max-width: $max-width;
     text-align: center;
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        grid-gap: $space-largest;
+        column-gap: 60px;
 
-    .help-view-item{
-        margin-bottom: $space-larger;
-        .view-item{
-            display: flex;
-            span{
-                width: 500px;
-                padding: $space-larger;
-                border-radius: $space-larger;
-                font-weight: 500;
+        .help-view-item{
+            margin-bottom: $space-larger;
+            .view-item{
+                display: flex;
+                span{
+                    padding: $space-larger;
+                    border-radius: $space-larger;
+                    font-weight: 500;
+                }
+            }
+            .question{
+                span{
+                    width: 400px;
+                    border-bottom-left-radius: 0;
+                    margin-bottom: $space-medium;
+                }
+            }
+            .answer{
+                justify-content: flex-end;
+                span{
+                    width: 500px;
+                    border-bottom-right-radius: 0;
+                    color: $text-color;
+                }
             }
         }
-        .question{
-            span{
-                border-bottom-left-radius: 0;
-                margin-bottom: $space-medium;
-            }
-        }
-        .answer{
-            justify-content: flex-end;
-            span{
-                border-bottom-right-radius: 0;
-                color: $text-color;
-            }
-        }
+    }
+}
+.form{
+    color: $syan;
+
+    h2{
+        text-align: center;
     }
 }

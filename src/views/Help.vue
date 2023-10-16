@@ -27,14 +27,15 @@ onMounted(async () => {
 <template>
   <div class="help-view">
     <h1>Тусламж</h1>
-    <div v-for="item in data" :key="item.id" class="help-view-item">
+    <div class="grid-container">
+      <div v-for="item in data" :key="item.id" class="help-view-item">
       <div class="question view-item">
-        
         <span>{{ item.question }} </span>
       </div>
       <div class="answer view-item">
         <span> {{ item.answer }}</span>
       </div>
+    </div>
     </div>
   </div>
 </template>

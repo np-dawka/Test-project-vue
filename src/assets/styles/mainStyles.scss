@@ -23,11 +23,15 @@ body {
   align-items: center;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
-  height: 100%;
+  // min-height: 100vh;
+  // height: 100%;
   #app {
+    
     .container {
       display: flex;
+      margin: 0;
+      padding: 0;
+      width: 100%;
       .sidebar-container{
         .menu-icon{
           padding: $space-medium $space-small;
@@ -35,6 +39,9 @@ body {
             width: $space-largest;
             height: $space-largest;
           }
+        }
+        .noPadding{
+          padding: 0;
         }
         .sidebar {
           min-height: 100%;
@@ -114,11 +121,20 @@ body {
             width: 100%;
             max-width: $max-width;
           }
-        
+        @media (max-width: 850px) {
+          width: calc(100vw - $top-width - $space-largest);
+
+        }
+      }
+      .containerFull{
+        width: 100vw;
       }
     }
     .nextPrev-button{
       padding: $space-small;
+    }
+    .hasBigPadding{
+      padding: $space-medium $space-largest;
     }
   } 
 }
@@ -144,6 +160,7 @@ body {
   }
 }
 
+
 [data-theme="light"]{
     @include color-scheme;
     .sidebar{
@@ -167,12 +184,15 @@ body {
       }
     }
     .hasBackground{
-      @include color-scheme-hover
+      @include color-scheme-hover;
     }
     td{
       &:hover {
         background: $gradientSyanLight; 
       }
+    }
+    .today{
+      background: $gradientSyanLight
     }
     .usermodal-view{
       @include color-scheme-sidebar;
@@ -211,10 +231,10 @@ body {
               background: $gradientSyanLight;
           }
           .finance{
-  
+            
           }
+        }
       }
-    }
   .nextPrev-button{
     background: $gradientSyanLight;
   }
@@ -231,6 +251,17 @@ body {
       .box-inset{
         background: $secondary-color;
         color: $text-color;
+      }
+    }
+  }
+  .google-account-button{
+    color: $text-color;
+  }
+  .input-container{
+    input{
+      background: $primary-color;
+      &:focus{
+        background: $secondary-color
       }
     }
   }
@@ -266,12 +297,16 @@ body {
     }
   }
   .hasBackground{
-    @include color-scheme-hover-dark
+    @include color-scheme-hover-dark;
   }
+
   td{
     &:hover {
       background: $gradientSyan; 
     }
+  }
+  .today{
+    background: $gradientSyan
   }
   .usermodal-view{
     @include color-scheme-sidebar-dark;
@@ -328,8 +363,17 @@ body {
           background: $gradientSyan;
       }
       .box-inset{
-        background: $secondary-color-dark;
+        background: $primary-color-dark;
         color: $text-color-dark;
+      }
+    }
+  }
+  .input-container{
+    input{
+      color: $text-color-dark;
+      background: $secondary-color-dark;
+      &:focus{
+        background: $primary-color-dark;
       }
     }
   }

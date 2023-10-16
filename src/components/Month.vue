@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NextPrevButton from './NextPrevButton.vue';
+import NextPrevButton from './Buttons.vue';
 import createCalendar from '../composables/createCalendar';
 import { ref } from 'vue';
 
@@ -24,6 +24,15 @@ const {
   hasBackground
 );
 
+const isToday = (day: number | null) => {
+  if (day === null) {
+    return false;
+  }
+
+  const today = new Date();
+  return today.getDate() === day && today.getMonth() === date.value.getMonth() && today.getFullYear() === date.value.getFullYear();
+};
+
 </script>
 
 <template>
@@ -34,9 +43,7 @@ const {
       {{ date.getFullYear() }} - {{ hasBackground && monthIndex === 0 ? 1 : monthIndex ? monthIndex + 1 : date.getMonth() + 1 }} сар
     </span>
     <NextPrevButton :handler="nextMonth" v-if="showButton" >
-        <slot>
           &gt;&gt;
-        </slot>
       </NextPrevButton>
     </div>
     <table>
@@ -47,7 +54,7 @@ const {
       </thead>
       <tbody>
         <tr v-for="row in rows" :key="row">
-          <td v-for="day in row" :key="day">
+          <td v-for="day in row" :key="day" :class="{ today: isToday(day) }">
             <span v-if="day !== null">{{ day }}</span>
           </td>
         </tr>

@@ -28,3 +28,7 @@
     </label>
   </div>
 </template>
+
+<style>
+    @import "../assets//styles/componentStyles.scss";
+</style>

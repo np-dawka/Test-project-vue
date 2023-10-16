@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import NextPrevButton from "../components/NextPrevButton.vue";
+import NextPrevButton from "../components/Buttons.vue";
 import createCalendar from "../composables/createCalendar";
-import { watch, ref, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 
 const daysOfWeek = ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"];
 const {
@@ -10,6 +10,7 @@ const {
   dateData,
 } = defineProps(["monthIndex", "hasBackground", "dateData"]);
 
+const todo = ref("")
 const dateChanged = ref(dateData ?? new Date());
 const { date, prevMonth, nextMonth, rows } = createCalendar(
   dateChanged.value,
@@ -17,10 +18,6 @@ const { date, prevMonth, nextMonth, rows } = createCalendar(
   hasBackground
 );
 
-// watch(dateData, (newValue) => {
-//   dateChanged.value = newValue ?? new Date();
-//   console.log('dateData :>> ', dateData);
-// });
 onMounted(() => {
   
 });
@@ -41,7 +38,7 @@ onMounted(() => {
         сар
       </span>
       <NextPrevButton :handler="nextMonth">
-        <slot> &gt;&gt; </slot>
+         &gt;&gt; 
       </NextPrevButton>
     </div>
     <table>
@@ -54,6 +51,7 @@ onMounted(() => {
         <tr v-for="row in rows" :key="row">
           <td v-for="day in row" :key="day">
             <span v-if="day !== null">{{ day }}</span>
+            <input v-model="todo" style="width: 100px; display: block;"/>
           </td>
         </tr>
       </tbody>

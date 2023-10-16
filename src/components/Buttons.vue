@@ -1,11 +1,11 @@
 <script lang="ts" setup>
     import { VmButton } from 'vue3-material';
-    const {handler} = defineProps(['type','handler']);
+    const {handler, type = "button", } = defineProps(['type','handler']);
 
 </script>
 
 <template>
-    <VmButton @click="handler" class="nextPrev-button">
+    <VmButton @click="handler" class="nextPrev-button" :type="type" :class="{hasBigPadding: type === 'submit'}">
         <slot>
             &lt;&lt;
         </slot>

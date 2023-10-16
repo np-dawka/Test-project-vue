@@ -34,7 +34,6 @@ const checkScreenSize = () => {
 
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
-  console.log('showSidebar.value :>> ', showSidebar.value);
 }
 
 onMounted(() => {
@@ -50,7 +49,10 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="sidebar-container">
-    <div class="sidebar" v-if="!isSmallScreen || showSidebar">
+    <div class="sidebar" v-if="!isSmallScreen || showSidebar" :class="{sidebarModal : !isSmallScreen || showSidebar}">
+      <div v-if="isSmallScreen" class="menu-icon noPadding" @click="toggleSidebar">
+      <MenuIcon />
+    </div>
       <div class="sidebarTop">
         <Month :showButton="true" />
       </div>
