@@ -19,8 +19,8 @@ const createCalendar = (initialDate : Date, monthIndex: number, hasBackground: b
     days: 0 
   });
 
-  const days = ref([]);
-  const rows = ref([]);
+  const days = ref<any[]>([])
+  const rows = ref<any[]>([]);
 
   // Function to update the calendar data
   const updateCalendar = () => {

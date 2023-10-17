@@ -7,10 +7,12 @@ import Google from 'vue-material-design-icons/Google.vue';
     'type', 'hasGoogleButton', 'login'
     ]);
 
+
     const signinWithGoogle =()=>{
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-    login()
+    signInWithPopup(auth, provider).then(()=>{
+       login()
+    })
 }
 </script>
 <template>

@@ -46,7 +46,6 @@ const chooseday = (day: number)=>{
     setTimeout(() => {
       window.location.reload()
     }, 0);
-   
   } else{
     const dateToDay = moment(date.value).format('YYYY-MM') + `-${day}`
     router.push({ name: 'day', query: { dateToDay } });
