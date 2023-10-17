@@ -44,11 +44,6 @@ const createCalendar = (initialDate : Date, monthIndex: number, hasBackground: b
     }
   };
 
-  // watch([initialDate, monthIndex], () => {
-  //   // Update the month's data when the year or month changes
-  //   updateCalendar();
-  // });
-
   updateCalendar();
 
   return {

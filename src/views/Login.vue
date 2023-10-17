@@ -15,24 +15,13 @@ let showEmailError = ref(false)
 const errorMsg = ref("")
 
 const submit =(e: Event)=>{
-    e.preventDefault();
-    if (!password.value) {
-        showPasswordError.value = true;
-    } else {
-        showPasswordError.value = false; // Clear the error message
-    }
-
-    if (!email.value) {
-        showEmailError.value = true;
-    } else {
-        showEmailError.value = false; // Clear the error message
-    }   
+    e.preventDefault(); 
     
-    if(password && email){
+    if(password.value && email.value){
         signInWithEmailAndPassword(auth, email.value, password.value)
-        .then((credantial)=>{
+        .then(()=>{
             login()
-            localStorage.setItem("token", credantial.user?.accessToken);
+            // localStorage.setItem("token", credantial.user?.accessToken);
         })
         .catch((err)=>{
             console.log('err :>> ', err.code);
@@ -47,14 +36,14 @@ const submit =(e: Event)=>{
                     errorMsg.value = 'И-мэйл болон нууц үг алдаатай байна'
             }
         })
+    } else { 
+        errorMsg.value = 'И-мэйл болон нууц үгээ оруулна уу'
     }
 }
-
-
 </script>
 <template>
     <div>
-        <AnimatedModal>
+        <AnimatedModal :login="login">
             <form class="form">
                 <h2>Нэвтрэх</h2>
                 <FormInput label="И-мэйл хаяг" :error="showEmailError ? 'И-мэйл хаягаа оруулна уу' : ''">
@@ -64,9 +53,11 @@ const submit =(e: Event)=>{
                 <FormInput label="Нууц үг" :error="showPasswordError ? 'Нууц үгээ оруулна уу' : ''">
                 <input type="password" placeholder="Нууц үг" v-model="password" required="true" />
                 </FormInput>
-                <Buttons type="submit" :handler="submit">
-                    Нэвтрэх
-                </Buttons>
+                <div class="buttonContainer">
+                    <Buttons type="submit" :handler="submit">
+                        Нэвтрэх
+                    </Buttons>
+                </div>
                 <router-link to="/signup" class="linkButton">
                     Бүртгүүлэх
                 </router-link>

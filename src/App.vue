@@ -11,6 +11,7 @@ const router = useRouter()
 
 const login =()=>{
   isLoggedIn.value= true
+  console.log('isLoggedIn :>> ', isLoggedIn);
   router.push('/')
 }
 
@@ -22,11 +23,10 @@ const signout =()=>{
 }
 
 onMounted(() => {
-  // const token =localStorage.getItem("token") ?? '';
   onAuthStateChanged(auth, (user)=>{
     if(user){ 
       isLoggedIn.value= true
-      router.push('/')
+      // router.push('/')
     } else{
       isLoggedIn.value= false
     }

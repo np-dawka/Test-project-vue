@@ -6,7 +6,7 @@ import CalendarEdit from 'vue-material-design-icons/CalendarEdit.vue';
 import CalendarMonth from 'vue-material-design-icons/CalendarMonth.vue';
 import CalendarClock from 'vue-material-design-icons/CalendarClock.vue';
 import Help from 'vue-material-design-icons/Help.vue';
-import Database from 'vue-material-design-icons/Database.vue';
+// import Database from 'vue-material-design-icons/Database.vue';
 import MenuIcon from 'vue-material-design-icons/Menu.vue';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
@@ -16,7 +16,7 @@ const sidebarData = [
   { label: "7 хоногийн төлөвлөгөө", link: "/week", icon: CalendarIcon },
   { label: "Сарын төлөвлөгөө", link: "/month", icon: CalendarMonth },
   { label: "Жилийн хуанли", link: "/year", icon: CalendarClock },
-  { label: "Гүйцэтгэл хянах", link: "/performance", icon: Database },
+  // { label: "Гүйцэтгэл хянах", link: "/performance", icon: Database },
   { label: "Тусламж", link: "/help", icon: Help },
 ]
 

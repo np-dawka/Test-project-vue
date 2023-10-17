@@ -10,7 +10,6 @@ const { login } = defineProps([
     'isLoggedIn',
     'login'
     ]);
-
 const password = ref("")
 const email = ref("")
 const username = ref("")
@@ -20,20 +19,9 @@ let showPasswordError = ref(false);
 let showEmailError = ref(false);
 
 const submit =(e: Event)=>{
-    e.preventDefault();
-    if (!password.value) {
-        showPasswordError.value = true;
-    } else {
-        showPasswordError.value = false; // Clear the error message
-    }
+    e.preventDefault();  
 
-    if (!email.value) {
-        showEmailError.value = true;
-    } else {
-        showEmailError.value = false; // Clear the error message
-    }    
-
-    if(password && email){
+    if(password.value && email.value){
         createUserWithEmailAndPassword(auth, email.value, password.value)
         .then((credantial)=>{
             updateProfile(auth.currentUser,{
@@ -58,6 +46,8 @@ const submit =(e: Event)=>{
                     errorMsg.value = 'И-мэйл болон нууц үг алдаатай байна'
             }
         })
+    } else{
+        errorMsg.value = 'И-мэйл болон нууц үгээ оруулна уу'
     }
 }
 
@@ -78,13 +68,16 @@ const submit =(e: Event)=>{
                 <FormInput label="Нууц үг" :error="showPasswordError ? 'Нууц үгээ оруулна уу' : ''">
                     <input type="password" placeholder="Нууц үг" v-model="password" required="true" />
                 </FormInput>
-                <Buttons type="submit" :handler="submit">
-                    Бүртгүүлэх
-                </Buttons>
+
+                <div class="buttonContainer">
+                    <Buttons type="submit" :handler="submit">
+                        Бүртгүүлэх
+                    </Buttons>
+                </div>
                 <router-link to="/login" class="linkButton">
                     Нэвтрэх
                 </router-link>
-                <p v-if="errorMsg">{{ errorMsg }}</p>
+                <p v-if="errorMsg" class="errorMessage">{{ errorMsg }}</p>
             </form>
         </AnimatedModal>
     </div>

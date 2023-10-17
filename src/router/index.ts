@@ -39,6 +39,9 @@ const router = createRouter({
       path: '/day',
       name: 'day',
       component: DayView,
+      props: (route) => ({
+        dateToDay: route.query.dateToDay,
+      }),
     },
     {
       path: '/performance',

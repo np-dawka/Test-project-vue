@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import Lock from 'vue-material-design-icons/Lock.vue';
 import Logout from 'vue-material-design-icons/Logout.vue';
 import Login from 'vue-material-design-icons/Login.vue';
@@ -28,7 +28,7 @@ const modalData = computed(() => {
   return isLoggedIn ? userModalData : userAccessModalData;
 });
 
-const clickHandler = (link) => {
+const clickHandler = (link: string) => {
   if(link === '/'){
     signout()
     toggleModal()

@@ -3,13 +3,14 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase';
 import Google from 'vue-material-design-icons/Google.vue';
 
-   const { type, hasGoogleButton = 'true'} = defineProps([
-    'type', 'hasGoogleButton'
+   const { type, hasGoogleButton = 'true', login} = defineProps([
+    'type', 'hasGoogleButton', 'login'
     ]);
 
     const signinWithGoogle =()=>{
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
+    login()
 }
 </script>
 <template>

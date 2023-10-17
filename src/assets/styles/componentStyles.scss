@@ -51,6 +51,9 @@
       }
       td{
         height: 150px;
+        max-height: 150px;
+        max-width: 10px;
+        overflow: hidden;
         padding: $space-small;
         text-align:start;
         vertical-align: top;
@@ -164,7 +167,7 @@
   width: 100%;
   .box{
     min-width: min(100%, 400px);
-    height: 500px;
+    height: 520px;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -199,9 +202,9 @@
   }
 }
 .signupContainer{
-  height: 600px;
+  height: 620px;
   .box{
-    height: 600px;
+    height: 620px;
   }
 
 }
@@ -238,9 +241,10 @@
     text-align: start;
     padding: 0 $space-small;
   }
-  input{
+  input, select{
     padding: $space-medium;
     width: 100%;
+    font-size: $font-medium;
     border-radius: $space-small;
     outline: none;
     border: 1px solid $syan;
@@ -248,13 +252,24 @@
       text-align: end;
       padding-top: 0;
     }
+    option{
+      padding: $space-small $space-medium;
+    }
+    .optionBox{
+      border-radius: 8px;
+    }
   }
 
 }
 
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+}
+
 .errorMessage{
   display: block;
-  padding: $space-large 0;
+  // padding: $space-large 0;
   color: $red;
   margin-top: $space-smallest;
   font-size: $font-small;

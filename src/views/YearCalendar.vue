@@ -14,7 +14,7 @@ const nextYear = () => {
 };
 
 const computeMonths = () => {
-  return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  return [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 };
 
 </script>
@@ -31,6 +31,7 @@ const computeMonths = () => {
     <div class="year-container">
       <div v-for="month in computeMonths()" :key="`${date}-${month}`">
         <Month
+          :fromYear = true
           :showButton="false"
           :monthIndex="month"
           :hasBackground="true"

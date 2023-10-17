@@ -77,6 +77,65 @@ button{
         }
     }
 }
+.todo-list-container{
+    margin-bottom: $space-large;
+    text-align: center;
+    .list-item{
+        display: flex;
+        align-items: center;
+        gap: $space-medium;
+        margin-bottom: $space-small;
+        width: 100%;
+        padding: $space-small;
+        border-radius: $space-small;
+        input[type="checkbox"]{
+            width: 22px;
+            height: 22px;
+        }
+        .task{
+            flex-grow: 1;
+            width: 345px !important;
+            text-wrap: wrap;
+            text-align: start;
+        }
+        .textCross{
+            text-decoration: line-through;
+        }
+        .textSmall{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+
+        }
+        .type{
+            width: 55px;
+        }
+        svg{
+            padding-top: $space-smallest;
+            transition: all 0.3;
+            &:hover{
+                color: $red;
+                scale: 1.1;
+            }
+        }
+    }
+    .smallContainer{
+        max-width: 210px;
+    }
+    .work{
+        background: $redGlass;
+    }
+    .hobby{
+        background-color: $green;
+    }
+    .chores{
+        background: $syanGlass;
+    }
+    .other{
+        background: $yellowGlass;
+    }
+}
+
 
 .day-plan{
     width: 100%;
@@ -86,10 +145,48 @@ button{
     .section-item{
         border: $borderSyan;
         border-radius: $space-small;
-        padding: $space-small;
+        padding: $space-larger;
+    }
+    .dayTitle{
+        font-weight: 600;
+        font-size: $font-large;
+        margin:  0 $space-medium;
     }
     .todo-list{
         flex-grow: 1;
+
+        .buttonContainer{
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: $space-large;
+
+        }
+        form{
+            padding: $space-small $space-medium;
+            border: 1px solid $syan;
+            border-radius: $space-medium;
+            text-align: end;
+            .todo-container{
+                width: 100%;
+                padding-bottom: 0;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                column-gap: $space-medium;
+                button{
+                    margin-top: $space-large;
+                }
+                .input-container{
+                    margin-bottom: $space-medium;
+                }
+                .text-input{
+                    flex-grow: 1;
+                }
+                select{
+                    min-width: 100px;
+                }
+            }
+        }
     }
     .additional-section{
         width: 400px;
@@ -109,8 +206,9 @@ button{
                 padding: $space-large;
             }
         }
-        .finance{
-            min-height: 600px;
+        .aphorism{
+            background: $green;
+            border: none;
         }
     }
 }
