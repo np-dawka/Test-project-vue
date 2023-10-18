@@ -3,8 +3,8 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase';
 import Google from 'vue-material-design-icons/Google.vue';
 
-   const { type, hasGoogleButton = 'true', login} = defineProps([
-    'type', 'hasGoogleButton', 'login'
+   const {  hasGoogleButton = 'true', login} = defineProps([
+    'hasGoogleButton', 'login'
     ]);
 
 
@@ -16,7 +16,7 @@ import Google from 'vue-material-design-icons/Google.vue';
 }
 </script>
 <template>
-   <div class="animated-modal" :class="{signupContainer: type==='signup'}">
+   <div class="animated-modal">
     <div class="box">
        <div class="box-inset">
             <slot>

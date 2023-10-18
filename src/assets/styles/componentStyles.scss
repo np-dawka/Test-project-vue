@@ -36,6 +36,7 @@
 .month-view{
   max-width: $max-width-large;
   border-radius: $space-medium;
+  height: fit-content;
   .title{
     @include text-scheme-medium;
     font-size: $font-larger;
@@ -46,7 +47,8 @@
       th{
         height: 50px;
         font-size: $font-larger;
-        color: $syan;
+        border: $border-syan;
+        background-color: $syanGlass;
       }
       td{
         height: 150px;
@@ -200,13 +202,6 @@
     }
   }
 }
-.signupContainer{
-  height: 620px;
-  .box{
-    height: 620px;
-  }
-
-}
 
 .google-account-button{
   display: flex;
@@ -247,10 +242,6 @@
     border-radius: $space-small;
     outline: none;
     border: 1px solid $syan;
-    .errorMessage{
-      text-align: end;
-      padding-top: 0;
-    }
     option{
       padding: $space-small $space-medium;
     }

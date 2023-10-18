@@ -42,6 +42,9 @@ const router = createRouter({
       props: (route) => ({
         dateToDay: route.query.dateToDay,
       }),
+      meta: {
+        reload: true,
+      },
     },
     {
       path: '/performance',

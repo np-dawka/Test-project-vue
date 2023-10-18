@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import AnimatedModal from '../components/AnimatedModal.vue';
 import FormInput from '../components/FormInput.vue'
 import Buttons from '../components/Buttons.vue';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {auth} from '../firebase'
 
 const { login } = defineProps([
@@ -12,7 +12,6 @@ const { login } = defineProps([
     ]);
 const password = ref("")
 const email = ref("")
-const username = ref("")
 const errorMsg = ref("")
 
 let showPasswordError = ref(false);
@@ -23,11 +22,7 @@ const submit =(e: Event)=>{
 
     if(password.value && email.value){
         createUserWithEmailAndPassword(auth, email.value, password.value)
-        .then((credantial)=>{
-            updateProfile(auth.currentUser,{
-                displayName: username.value ?? ""
-            })
-            console.log('credantial :>> ', credantial);
+        .then(()=>{
             login()
         })
         .catch((err)=>{
@@ -54,13 +49,9 @@ const submit =(e: Event)=>{
 </script>
 <template>
     <div>
-        <AnimatedModal type="signup">
+        <AnimatedModal>
             <form class="form">
                 <h2>Бүртгүүлэх</h2>
-                <FormInput label="Хэрэглэгчийн нэр" :error="showEmailError ? 'Хэрэглэгчийн нэраа оруулна уу' : ''">
-                    <input type="text" placeholder="Хэрэглэгчийн нэр" v-model="username" required="true" />
-                </FormInput>
-
                 <FormInput label="И-мэйл хаяг" :error="showEmailError ? 'И-мэйл хаягаа оруулна уу' : ''">
                     <input type="email" placeholder="И-мэйл хаяг" v-model="email" required="true" />
                 </FormInput>

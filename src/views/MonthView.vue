@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NextPrevButton from "../components/Buttons.vue";
 import createCalendar from "../composables/createCalendar";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import moment from 'moment';
 import { useRouter } from "vue-router";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -15,7 +15,7 @@ interface TodoItem {
 
 interface MonthItem {
   date: string;
-  todos: TodoItem[]; // Use TodoItem type for todos
+  todos: TodoItem[]; 
 }
 
 const daysOfWeek = ["Ня", "Да", "Мя", "Лх", "Пү", "Ба", "Бя"];
@@ -28,12 +28,17 @@ const {
 const router = useRouter();
 
 function formatDate(date: Date, day:number) {
-  return moment(date).format('YYYY-MM') + `-${day}`;
+ if(day){
+  if(day.toString().length ===1){
+    return moment(date).format('YYYY-MM') + `-0${day}`;
+  } else{
+    return moment(date).format('YYYY-MM') + `-${day}`;
+  }
+ }
 }
 
 const data = ref<MonthItem[]>([]);
 
-const chosenDay = ref(0);
 const dateChanged = ref(dateData ?? new Date());
 const { date, prevMonth, nextMonth, rows } = createCalendar(
   dateChanged.value,
@@ -42,18 +47,18 @@ const { date, prevMonth, nextMonth, rows } = createCalendar(
 );
 
 const chooseday = (day: number) => {
-  chosenDay.value = day;
   let dateToDay = "";
-
-  if (monthIndex) {
+  if(day){
+    if (monthIndex) {
     dateToDay = moment(date.value).format('YYYY') + `-${monthIndex}-${day}`;
   } else {
     dateToDay = moment(date.value).format('YYYY-MM') + `-${day}`;
   }
   router.push({ name: 'day', query: { dateToDay } });
+  }
 };
 
-onMounted(async () => {
+const FetchData = async()=>{
   const startOfMonth = moment(date.value).startOf('month');
   const endOfMonth = moment(date.value).endOf('month');
   const todoListRef = collection(db, 'todos');
@@ -72,10 +77,21 @@ onMounted(async () => {
   querySnapshot.forEach((doc) => {
     const todosArray = doc.data().todos;
     const formattedDate = moment(doc.data().date).format('YYYY-MM-DD');
-    data.value.push({ date: formattedDate, todos: todosArray.slice(0,2)});
+    data.value.push({ date: formattedDate, todos: todosArray.slice(0,3)});
   });
   }
+}
+
+onMounted(() => {
+  FetchData()
 });
+
+watch([date, monthIndex], ([newDate, newMonthIndex], [oldDate, oldMonthIndex]) => {
+  if (newDate !== oldDate || newMonthIndex !== oldMonthIndex) {
+    FetchData();
+  }
+});
+
 </script>
 
 <template>

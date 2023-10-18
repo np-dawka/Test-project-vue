@@ -26,7 +26,6 @@ onMounted(() => {
   onAuthStateChanged(auth, (user)=>{
     if(user){ 
       isLoggedIn.value= true
-      // router.push('/')
     } else{
       isLoggedIn.value= false
     }
@@ -45,9 +44,10 @@ onMounted(() => {
       <div class="container-content" :class="{containerFull: !isLoggedIn}">
         <RouterView :isLoggedIn="isLoggedIn" :login="login"/>
       </div>
+    </div>
   </div>
-</div></template>
+</template>
 
 <style lang="scss">
-@import "./assets/styles/mainStyles.scss";
+  @import "./assets/styles/mainStyles.scss";
 </style>

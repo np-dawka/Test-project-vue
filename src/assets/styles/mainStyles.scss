@@ -34,8 +34,13 @@ body {
       padding: 0;
       width: 100%;
       height: 100%;
+      position: relative;
+
       .sidebar-container{
-        height: 100%;
+        height: 100vh;
+        position: sticky;
+        z-index: 100;
+        top: 0;
         .menu-icon{
           padding: $space-medium $space-small;
           svg{
@@ -89,12 +94,15 @@ body {
         height: $top-width;
         width: 100%;
         flex-grow: 1;
+        position: sticky;
+        top: 0;
+        z-index: 100;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         padding: $space-medium $space-larger;
         position: relative;
-        margin-bottom: $space-larger;
+        // margin-bottom: $space-larger;
         column-gap: $space-larger;
         .user{
           width: 40px;
@@ -150,6 +158,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: $space-largest;
+  color: $text-color-dark
   h2{
       text-align: center;
   }

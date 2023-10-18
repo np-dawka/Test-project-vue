@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const { type = "full", task} = defineProps([
-  'type', 'task'
+const { type = "full", task, changeTask} = defineProps([
+  'type', 'task', 'changeTask'
 ]);
 
 const getType = (todoType: string) => {
@@ -18,12 +18,13 @@ const getType = (todoType: string) => {
     }
     return type.value
   };
+
 </script>
 
 <template>
     <div class="list-item" :class="task.type,{smallContainer: type==='small'}">
         <slot name="beforeType"></slot>               
-        <span class="task" :class="{textCross: task.isDone && type === 'small', textSmall: type === 'small'}" >{{ task.task }}</span>
+        <span class="task" :class="{textCross: task.isDone && type === 'small', textSmall: type === 'small'}" @click="changeTask(task)">{{ task.task }}</span>
         <span class="type" v-if="type === 'full'">
             {{ getType(task.type)}}
         </span>
