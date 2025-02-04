@@ -11,7 +11,6 @@ const router = useRouter()
 
 const login =()=>{
   isLoggedIn.value= true
-  console.log('isLoggedIn :>> ', isLoggedIn);
   router.push('/')
 }
 
